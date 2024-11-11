@@ -1,12 +1,15 @@
 require('dotenv').config();
 require('./database/mongo');
 const express = require('express');
+const cors = require('cors')
 
 const uploadRouter = require('./controller/upload');
 const retrieveRouter = require('./controller/retrieve');
 const connection = require('./database/mongo');
 
 const app = express();
+
+app.use(cors())
 
 app.use(uploadRouter);
 app.use(retrieveRouter);
